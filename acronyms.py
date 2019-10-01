@@ -2,7 +2,7 @@
 
 import fileinput
 
-words = {}
+acronym_dict = {}
 
 
 def sorted_string(s: str) -> str:
@@ -13,14 +13,14 @@ try:
     for line in fileinput.input(mode="r"):
         word = line.rstrip()
         word_key = sorted_string(word)
-        if words.get(word_key) is None:
-            words[word_key] = [word]
+        if acronym_dict.get(word_key) is None:
+            acronym_dict[word_key] = [word]
         else:
-            words[word_key].append(word)
+            acronym_dict[word_key].append(word)
 except FileNotFoundError:
     exit("No such file")
 
 
-for acronyms in words.values():
+for acronyms in acronym_dict.values():
     if len(acronyms) > 1:
         print(", ".join(acronyms))

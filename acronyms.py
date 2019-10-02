@@ -21,6 +21,6 @@ except FileNotFoundError:
     exit("No such file")
 
 
-for acronyms in acronym_dict.values():
-    if len(acronyms) > 1:
+for sorted_word, acronyms in acronym_dict.items():
+    if len(acronyms) > 1 and len(sorted_word) > 0:
         print(", ".join(acronyms))

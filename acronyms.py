@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
-
 import fileinput
-
-acronym_dict = {}
 
 
 def sorted_string(s: str) -> str:
     return "".join(sorted(s))
 
 
+# We define a dictionary containing lists of acronyms with their
+# common sorted word as the key.
+acronym_dict = {}
 try:
     for line in fileinput.input(mode="r"):
-        word = line.rstrip()
+        word = line.rstrip()  # Removes both \r and \n
         word_key = sorted_string(word)
         if acronym_dict.get(word_key) is None:
             acronym_dict[word_key] = [word]
